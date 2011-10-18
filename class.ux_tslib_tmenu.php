@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2007 Michael Sollmann (sollmann@dpi-berlin.net)
+*  (c) 2011 Michael Sollmann (sollmann@dpi-berlin.net)
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is

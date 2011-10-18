@@ -9,21 +9,21 @@
 			<label index="pages.tx_menustop_last_visible.I.0">Main menu</label>
 			<label index="pages.tx_menustop_last_visible.I.1">Sitemap</label>
 			<label index="pages.tx_menustop_last_visible.I.2">Clickpath</label>
-			<label index="pages.tx_menustop_last_visible">Last visible page in: </label>
+			<label index="pages.tx_menustop_last_visible">Hide subpages in: </label>
 			<label index="pages.tx_menustop_first_invisible.I.0">Main menu</label>
 			<label index="pages.tx_menustop_first_invisible.I.1">Sitemap</label>
 			<label index="pages.tx_menustop_first_invisible.I.2">Clickpath</label>			
-			<label index="pages.tx_menustop_first_invisible">First invisible page in: </label>			
+			<label index="pages.tx_menustop_first_invisible">Hide page in: </label>			
 		</languageKey>
 		<languageKey index="de" type="array">
 			<label index="pages.tx_menustop_last_visible.I.0">Hauptmenü</label>
 			<label index="pages.tx_menustop_last_visible.I.1">Sitemap</label>
 			<label index="pages.tx_menustop_last_visible.I.2">Klickpfad</label>
-			<label index="pages.tx_menustop_last_visible">Letzte sichtbare Seite in: </label>
+			<label index="pages.tx_menustop_last_visible">Unterseiten unsichtbar in: </label>
 			<label index="pages.tx_menustop_first_invisible.I.0">Hauptmenü</label>
 			<label index="pages.tx_menustop_first_invisible.I.1">Sitemap</label>
 			<label index="pages.tx_menustop_first_invisible.I.2">Klickpfad</label>			
-			<label index="pages.tx_menustop_first_invisible">Erste unsichtbare Seite in: </label>			
+			<label index="pages.tx_menustop_first_invisible">Seite (und Unterseiten) unsichtbar in: </label>			
 		</languageKey>		
 	</data>
 </T3locallang>
