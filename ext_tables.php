@@ -30,8 +30,8 @@ $tempColumns = Array (
 );
 
 
-t3lib_div::loadTCA("pages");
-t3lib_extMgm::addTCAcolumns("pages",$tempColumns,1);
-t3lib_extMgm::addToAllTCAtypes("pages","tx_menustop_first_invisible;;;;1-1-1,tx_menustop_last_visible");
+// \TYPO3\CMS\Core\Utility\GeneralUtility::loadTCA("pages");
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns("pages",$tempColumns,1);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes("pages","tx_menustop_first_invisible;;;;1-1-1,tx_menustop_last_visible");
 
 ?>

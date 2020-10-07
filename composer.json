@@ -1,0 +1,16 @@
+{
+    "name": "wdb/menustop",
+    "type": "typo3-cms-extension",
+    "description": "",
+    "homepage": "https://github.com/DavidBruchmann",
+    "license": ["GPL-3.0-only"],
+    "keywords": ["TYPO3 CMS"],
+    "require": {
+        "typo3/cms-core": "^10.4.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "WDB\\Menustop\\": "Classes/"
+        }
+    }
+}
