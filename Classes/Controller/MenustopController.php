@@ -56,7 +56,7 @@ class MenustopController extends TextMenuContentObject
 
         if (trim($this->conf['excludeUidList']))        {
             $banUidList = str_replace('current', $GLOBALS['TSFE']->page['uid'], $this->conf['excludeUidList']);
-            $banUidArray = array_merge($banUidArray, t3lib_div::intExplode(',', $banUidList));
+            $banUidArray = array_merge($banUidArray, GeneralUtility::intExplode(',', $banUidList));
         }
 
         $lastVisibles = $this->menustopRepository->findLastVisible($this->conf);
