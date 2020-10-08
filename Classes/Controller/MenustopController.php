@@ -42,18 +42,6 @@ class MenustopController extends TextMenuContentObject
     protected $menustopRepository;
 
     /**
-     * Dependency injection of the Menustop Repository
-     *
-     * @param \WDB\Menustop\Domain\Repository\MenustopRepository $menustopRepository
-     *
-     * @return void
-     */
-    public function injectMenustopRepository(MenustopRepository $menustopRepository)
-    {
-        $this->menustopRepository = $menustopRepository;
-    }
-
-    /**
      * Collects banned page-Uids in an array
      *
      */
@@ -75,6 +63,7 @@ class MenustopController extends TextMenuContentObject
         foreach ($lastVisibles as $lastVisible) {
             $endPages[] = $lastVisible['uid'];
         }
+
         // Subpages (not visible)
         if (sizeof($endPages) > 0) {
             $hiddenSubpages = $this->menustopRepository->findHiddenSubpages($endPages);
@@ -83,15 +72,14 @@ class MenustopController extends TextMenuContentObject
                     $banUidArray[] = $hiddenSubpage['uid'];
                 }
             }
-        }	
+        }
 
         // First invisible page
         $firstInvisibles = $this->menustopRepository->findFirstInvisible($this->conf);
         foreach ($firstInvisibles as $firstInvisible) {
             $banUidArray[] = $firstInvisible['uid'];
-        }						
-        
-        return $banUidArray;	
-	}
+        }
 
+        return $banUidArray;
+	}
 }

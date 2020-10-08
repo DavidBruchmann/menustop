@@ -36,87 +36,95 @@ class MenustopRepository
 {
 
     /**
-     * Finds last visible pages as menu entries
+     * Finds last visible pages as menu entries (End-pages that are still visible)
      *
      * @param array $conf
      *
      * @return array of pids
      */
-    public function findLastVisible($conf = [])
+    public function findLastVisible(array $conf = []) : array
     {
-        // "last visible page" (End-pages that are still visible)
-        if (empty($conf['menuStopID'])) {
-            $lastVisible = [];
-        } else {
-            $idList = $this->getIdList($conf['menuStopID']);
-            if ($idList) {
-                $connectionPool = GeneralUtility::makeInstance(ConnectionPool::class);
-                $connection     = $connectionPool->getConnectionForTable('pages');
-                $queryBuilder   = $connectionPool->getQueryBuilderForTable('pages');
-                $lastVisible    = $queryBuilder
-                    ->select('uid')
-                    ->from('pages')
-                    ->where(
-                        $queryBuilder->expr()->in(
-                            'tx_menustop_last_visible',
-                            $queryBuilder->createNamedParameter(explode(',', $idList), $connection::PARAM_INT_ARRAY) // implode(',', $idList)
-                        )
-                    )
-                    ->execute()
-                    ->fetchAll();
-            }
+        $lastVisible = [];
+        if (!empty($conf['menuStopID'])) {
+            $idArray = $this->getIdArray($conf['menuStopID']);
+            $lastVisible = $this->findPageUidsByFieldValues('tx_menustop_last_visible', $idArray);
         }
         return $lastVisible;
     }
 
-    public function findHiddenSubpages($endPages)
+    /**
+     * Find hidden pages of pages with submitted uids
+     *
+     * @param array $pageUids
+     *
+     * @return array of pids
+     */
+    public function findHiddenSubpages(array $pageUids) : array
     {
         $hiddenSubpages = [];
-        $connectionPool = GeneralUtility::makeInstance(ConnectionPool::class);
-        $connection     = $connectionPool->getConnectionForTable('pages');
-        $queryBuilder   = $connectionPool->getQueryBuilderForTable('pages');
-        $hiddenSubpages = $queryBuilder
-            ->select('uid')
-            ->from('pages')
-            ->where(
-                $queryBuilder->expr()->in(
-                    'pid',
-                    $queryBuilder->createNamedParameter($endPages, $connection::PARAM_INT_ARRAY)
-                )
-            )
-            ->execute()
-            ->fetchAll();
-
+        if (!empty($pageUids)) {
+            $hiddenSubpages = $this->findPageUidsByFieldValues('pid', $pageUids);
+        }
         return $hiddenSubpages;
     }
 
-    public function findFirstInvisible($conf)
+    /**
+     * Find the first invisible pages
+     *
+     * @param array $conf
+     *
+     * @return array of pids
+     */
+    public function findFirstInvisible(array $conf = []) : array
     {
-        if (empty($conf['menuStopID'])) {
-            $firstInvisible = [];
-        } else {
-            $idList = $this->getIdList($conf['menuStopID']);
-            if ($idList) {
-                $connectionPool = GeneralUtility::makeInstance(ConnectionPool::class);
-                $connection     = $connectionPool->getConnectionForTable('pages');
-                $queryBuilder   = $connectionPool->getQueryBuilderForTable('pages');
-                $firstInvisible = $queryBuilder
-                    ->select('uid')
-                    ->from('pages')
-                    ->where(
-                        $queryBuilder->expr()->in(
-                            'tx_menustop_first_invisible',
-                            $queryBuilder->createNamedParameter(explode(',', $idList), $connection::PARAM_INT_ARRAY)
-                        )
-                    )
-                    ->execute()
-                    ->fetchAll();
-            }
+        $firstInvisible = [];
+        if (!empty($conf['menuStopID'])) {
+            $idArray = $this->getIdArray($conf['menuStopID']);
+            $firstInvisible = $this->findPageUidsByFieldValues('tx_menustop_first_invisible', $idArray);
         }
         return $firstInvisible;
     }
 
-    public function getIdList($menuStopID)
+    /**
+     * Query the 'pages' table for values of '$idArray' in field '$byField'
+     * and return the uids of the found records.
+     *
+     * @param string $byField    field where to search for the values
+     * @param array  $idArray    values to search for
+     *
+     * @return array of pids
+     */
+    protected function findPageUidsByFieldValues($byField, $idArray) : array
+    {
+        if (!empty($idArray)) {
+            $connectionPool = GeneralUtility::makeInstance(ConnectionPool::class);
+            $connection     = $connectionPool->getConnectionForTable('pages');
+            $queryBuilder   = $connectionPool->getQueryBuilderForTable('pages');
+            $pageUids = $queryBuilder
+                ->select('uid')
+                ->from('pages')
+                ->where(
+                    $queryBuilder->expr()->in(
+                        $byField,
+                        $queryBuilder->createNamedParameter($idArray, $connection::PARAM_INT_ARRAY)
+                    )
+                )
+                ->execute()
+                ->fetchAll();
+            return $pageUids;
+        }
+        return [];
+    }
+
+    /**
+     * Get possible field-values related to checkbox-selection
+     * and based on $menuStopID
+     *
+     * @param int  $menuStopID    value to search for
+     *
+     * @return array of pids
+     */
+    public function getIdArray(int $menuStopID) : array
     {
         // Checkbox-Values:
         //   - Main Menu: 1
@@ -136,10 +144,11 @@ class MenustopRepository
                $idList = '4,5,6,7';
                break;
             default:
-               // $where_clause = '0';
+               // value of $idList for case 'default' was '0', but that's probably
+               // wrong, nevertheless this case shouldn't be triggered here anyway.
                $idList = '';
                break;
         }
-        return $idList;
+        return explode(',', $idList);
     }
 }
