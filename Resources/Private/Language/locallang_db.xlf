@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2023-05-03UTC21:23:000">
+        <header>
+            <authorName>David Bruchmann</authorName>
+            <authorEmail>david.bruchmann@gmail.com</authorEmail>
+			<description>Language labels for database tables/fields belonging to extension 'menustop'</description>
+        </header>
+        <body>
+			<trans-unit id="pages.tx_menustop_last_visible">
+				<source>Hide subpages in: </source>
+			</trans-unit>
+			<trans-unit id="pages.tx_menustop_last_visible.I.0">
+				<source>Main menu</source>
+			</trans-unit>
+			<trans-unit id="pages.tx_menustop_last_visible.I.1">
+				<source>Sitemap</source>
+			</trans-unit>
+			<trans-unit id="pages.tx_menustop_last_visible.I.2">
+				<source>Clickpath</source>
+			</trans-unit>
+			<trans-unit id="pages.tx_menustop_first_invisible">
+				<source>Hide page in:</source>
+			</trans-unit>
+			<trans-unit id="pages.tx_menustop_first_invisible.I.0">
+				<source>Main menu</source>
+			</trans-unit>
+			<trans-unit id="pages.tx_menustop_first_invisible.I.1">
+				<source>Sitemap</source>
+			</trans-unit>
+			<trans-unit id="pages.tx_menustop_first_invisible.I.2">
+				<source>Clickpath</source>
+			</trans-unit>
+        </body>
+    </file>
+</xliff>

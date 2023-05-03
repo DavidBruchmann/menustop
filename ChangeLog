@@ -1,5 +1,23 @@
 (add new changes on top of this file)
 
+2023-05-03 David Bruchmann <david.bruchmann@gmail.com>
+
+    2.0.0
+    * [Task] replace constant TYPO3_MODE by TYPO3
+    * [Task] replace language_db.xml by language_db.xlf and de.language_db.xlf
+    * [Task] update 'composer.json'
+    * [Task] update
+    * [Task] move icon into Resources/Public/Icon
+
+2020-10-07 David Bruchmann <david.bruchmann@gmail.com>
+
+    1.0.0
+    * [Task] replace old database-api by datahandler
+    * [Task] divide class into controller and repository and move them in respective folders
+    * [Task] add file 'composer.json'
+    * [Task] add file '.gitattributes'
+    * [Task] add file '.editorconfig'
+
 2011-10-18 Michael Sollmann  <info@dpi-berlin.net>
 
     0.0.2

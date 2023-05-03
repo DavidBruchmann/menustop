@@ -1,11 +1,19 @@
 <?php
-if (!defined ("TYPO3_MODE")) 	die ("Access denied.");
+
+defined ("TYPO3") || die ("Access denied.");
 
 /**
- * Example of how to configure a class for extension of another class:
+ * XClass:
  */
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][TYPO3\CMS\Frontend\ContentObject\Menu\TextMenuContentObject::class] = [
+   'className' => WDB\Menustop\Controller\MenustopController::class
+];
 
-$TYPO3_CONF_VARS["FE"]["XCLASS"]["tslib/class.tslib_menu.php"]=t3lib_extMgm::extPath($_EXTKEY)."class.ux_tslib_tmenu.php";
 
+/**
+ * HOOK DOESN'T WORK: no access to configuration because it's protected.
+ * See https://forge.typo3.org/issues/92508
+ */
+// $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/tslib/class.tslib_menu.php']['filterMenuPages'][] = \WDB\Menustop\Controller\MenustopController::class;
 
 ?>

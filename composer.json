@@ -1,0 +1,35 @@
+{
+    "name": "wdb/menustop",
+    "type": "typo3-cms-extension",
+    "description": "Allows to end main menu, sitemap and click path at each location. Each page can be the last visible or the first hidden one. To be configured in 'page properties'. It is an extended alternative to the page property checkbox 'hide in menu'.",
+    "homepage": "https://github.com/DavidBruchmann",
+    "license": ["GPL-3.0-only"],
+    "keywords": ["TYPO3 CMS"],
+    "require": {
+        "typo3/cms-core": "^12.4"
+    },
+    "authors": {
+        {
+            "name": "Michael Sollmann",
+            "email": "sollmann@dpi-berlin.net",
+            "homepage": "",
+            "role": "Developer"
+        },
+        {
+            "name": "David Bruchmann",
+            "email": "david.bruchmann@gmail.com",
+            "homepage": "https://github.com/DavidBruchmann",
+            "role": "Developer"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "WDB\\Menustop\\": "Classes/"
+        }
+    },
+    "extra": {
+      "typo3/cms": {
+         "extension-key": "menustop"
+      }
+    }
+}
