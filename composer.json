@@ -8,7 +8,7 @@
     "require": {
         "typo3/cms-core": "^12.4"
     },
-    "authors": {
+    "authors": [
         {
             "name": "Michael Sollmann",
             "email": "sollmann@dpi-berlin.net",
@@ -21,7 +21,7 @@
             "homepage": "https://github.com/DavidBruchmann",
             "role": "Developer"
         }
-    },
+    ],
     "autoload": {
         "psr-4": {
             "WDB\\Menustop\\": "Classes/"
