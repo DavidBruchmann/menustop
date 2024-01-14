@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2022-03-10UTC04:18:230">
+        <header>
+            <authorName>David Bruchmann</authorName>
+            <authorEmail>david.bruchmann@gmail.com</authorEmail>
+        </header>
+        <body>Main menu
+            <trans-unit id="pages.tx_menustop_first_invisible">
+                <source>Hide page in:</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_menustop_first_invisible.I.0">
+                <source>Main men</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_menustop_first_invisible.I.1">
+                <source>Sitemap</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_menustop_first_invisible.I.2">
+                <source>Clickpath</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_menustop_last_visible">
+                <source>Hide subpages in: </source>
+            </trans-unit>
+            <trans-unit id="pages.tx_menustop_last_visible.I.0">
+                <source>Main men</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_menustop_last_visible.I.1">
+                <source>Sitemap</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_menustop_last_visible.I.2">
+                <source>Clickpath</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,5 +1,14 @@
 (add new changes on top of this file)
 
+2020-10-07 David Bruchmann <david.bruchmann@gmail.com>
+
+    1.0.0
+    * [Task] replace old database-api by datahandler
+    * [Task] divide class into controller and repository and move them in respective folders
+    * [Task] add file 'composer.json'
+    * [Task] add file '.gitattributes'
+    * [Task] add file '.editorconfig'
+
 2011-10-18 Michael Sollmann  <info@dpi-berlin.net>
 
     0.0.2
